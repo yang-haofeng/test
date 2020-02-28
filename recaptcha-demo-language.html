@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>reCAPTCHA demo: Explicit render after an onload callback</title>
+    <script>
+      var onSubmit = function(token) {
+        console.log('success!', token);
+      };
+      var onloadCallback = function() {
+        grecaptcha.render('div1', {
+          'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+          'callback' : onSubmit
+        });
+      };
+      var onloadCallback1 = function() {
+        grecaptcha.render('div2', {
+          'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+          'callback' : onSubmit
+        });
+      };
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+
+<script src="https://www.recaptcha.net/recaptcha/api.js?hl=en&onload=onloadCallback&render=explicit" async defer>
+</script>
+<script src="https://www.recaptcha.net/recaptcha/api.js?hl=cn&onload=onloadCallback1&render=explicit" async defer></script>
+</body>
+</html>

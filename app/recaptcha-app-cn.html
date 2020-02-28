@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.recaptcha.net/recaptcha/api.js?hl=cn" async defer></script>
+</head>
+<body>
+<form action="?" method="POST">
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onVerify"></div>
+</form>
+</body>
+<script>
+  function onVerify(token) {
+    console.log(token);
+    window.postMessage(JSON.stringify({
+      token
+    }), '*');
+  }
+</script>
+</html>
